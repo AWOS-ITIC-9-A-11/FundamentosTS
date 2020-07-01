@@ -1,26 +1,44 @@
 (() => {
 
-    let persona = {
-        strNombre: 'Cecilia',
-        strApellidos: 'Mata Muñoz',
-        edad: 22,
-        altura: 150
+    class Persona {
+
+        constructor(public strNombre: string, public strApellidos: string, public edad: number = 0, private altura: number = 0) {
+        }
+
+        imprimir() {
+            console.log(`Hola, mi nombre es ${this.strNombre} ${this.strApellidos}`);
+            // console.log(this.altura);
+        }
+
+        getAltura(){
+            return this.altura;
+        }
+
+        setAltura(altura: number){
+            this.altura = altura;
+        }
+
+        get Altura(): number {
+            return this.altura;
+        }
+
+        set Altura(altura: number) {
+            this.altura = altura;
+        }
+        
     }
-            let { altura, edad, strNombre } = persona;
-    
-    let presentacion = ({ altura, edad, strNombre }: any) => {
-        // let { altura, edad, strNombre } = persona;
-        // return console.log(`Hola, mi nombre es ${strNombre}, tengo ${edad}, mi altura es de ${altura} cms`);
-    }
 
-    presentacion(persona);
+    let persona: Persona = new Persona('Abraham', 'Carranza', 23, 170);
 
-    let personas: string[] = [];
+    persona.imprimir();
 
-    personas = ['Cecilia', 'Abraham', 'Isabela'];
+    // console.log(persona.Altura);
+    // persona.Altura = 23;
 
-    let [ ,desarrollador3 ] = personas;
+    // console.log(persona.getAltura());
+    // persona.setAltura(180);
+    // console.log(persona.getAltura());
 
-    console.log(desarrollador3);
+    // console.log(persona);
 
 })();
